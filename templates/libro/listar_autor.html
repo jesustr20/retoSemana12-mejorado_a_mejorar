@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listar Autores
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <h1 style="text-align: center;">Lista de Autores</h1>
+        <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Nacionalidad</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Accion</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for autor in autores %}
+                <tr>
+                    <td>{{ autor.nombre }}</td>
+                    <td>{{ autor.apellidos }}</td>
+                    <td>{{ autor.nacionalidad }}</td>
+                    <td>{{ autor.descripcion }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="/libro/editar_autor/{{ autor.id }}">Actualizar</a>
+                        <a class="btn btn-danger" href="/libro/eliminar_autor/{{ autor.id }}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="/">Inicio</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registrar Cliente
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+            <h1 style="text-align: center;">Registrar Cliente</h1>
+            <br>
+        {% csrf_token %}
+        {{ cliente_form.as_p }}
+        <button class="btn btn-primary" type="submit">Registrar</button>
+    </form>
+{% endblock %}

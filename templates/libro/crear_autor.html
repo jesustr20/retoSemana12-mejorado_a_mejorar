@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Crear Autor
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+            <h1 style="text-align: center;">Agregar Autor</h1>
+            <br>
+        {% csrf_token %}
+        {{ autor_form.as_p }}
+        <button class="btn btn-primary" type="submit">Crear</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Crear Editorial
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+            <h1 style="text-align: center;">Agregar Editorial</h1>
+            <br>
+        {% csrf_token %}
+        {{ editorial_form.as_p }}
+        <button class="btn btn-primary" type="submit">Crear</button>
+    </form>
+{% endblock %}

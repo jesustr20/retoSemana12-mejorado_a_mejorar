@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listar Editoriales
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <h1 style="text-align: center;">Lista de Editoriales</h1>
+        <thead>
+        <tr>
+            <th scope="col">Editorial</th>
+            <th scope="col">Nombre del Libro</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Publicacion</th>
+            <th scope="col">Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for editorial in editoriales %}
+                <tr>
+                    <td>{{ editorial.nombre }}</td>
+                    <td>{{ editorial.libro_id.all.0.titulo }}</td>
+                    <td>{{ editorial.autor_id.all.0.nombre }}</td>
+                    <td>{{ editorial.fecha_publicacion }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="/libro/editorial_editar/{{ editorial.id }}">Actualizar</a> <!--/libro/editar_autor/{{ autor.id }}-->
+                        <a class="btn btn-danger" href="/libro/editorial_eliminar/{{ editorial.id }}">Eliminar</a> <!--/libro/eliminar_autor/{{ autor.id }}-->
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="/">Inicio</a>
+{% endblock %}

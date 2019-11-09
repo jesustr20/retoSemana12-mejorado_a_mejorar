@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registrar Alquiler
+{% endblock %}
+
+{% block content %}
+    <form method="POST">
+            <h1 style="text-align: center;">Registrar Alquiler</h1>
+            <br>
+        {% csrf_token %}
+        {{ alquiler_form.as_p }}
+        <button class="btn btn-primary" type="submit">Registrar</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Eliminar Cliente
+{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    <h3>¿Desea eliminar al cliente: {{ clientes.nombre }}?</h3>
+    <button class="btn btn-danger" type="submit">Eliminar</button>
+    <a class="btn btn-secondary" href="/libro/cliente_listar">Cancelar</a>
+</form>
+
+{% endblock %}

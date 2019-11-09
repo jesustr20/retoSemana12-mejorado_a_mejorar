@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Clientes
+{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <h1 style="text-align: center;">Lista de Clientes</h1>
+        <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Fecha de Registro</th>
+            <th scope="col">Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.apellido }}</td>
+                    <td>{{ cliente.fecha_registro }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="/libro/cliente_editar/{{ cliente.id }}">Actualizar</a> <!--/libro/editar_autor/{{ autor.id }}-->
+                        <a class="btn btn-danger" href="/libro/cliente_eliminar/{{ cliente.id }}">Eliminar</a> <!--/libro/eliminar_autor/{{ autor.id }}-->
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-secondary" href="/">Inicio</a>
+{% endblock %}

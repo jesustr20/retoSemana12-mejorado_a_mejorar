@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Crear Libro
+{% endblock %}
+
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+            <h1 style="text-align: center;">Agregar Libro</h1>
+            <br>
+        {% csrf_token %}
+        {{ libro_form.as_p }}
+        <button class="btn btn-primary" type="submit">Crear</button>
+    </form>
+{% endblock %}
